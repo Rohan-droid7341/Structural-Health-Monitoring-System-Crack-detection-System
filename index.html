@@ -202,11 +202,7 @@
       text-align: left;
     }
   </style>
-  <script>
-    function showUploadSection() {
-      document.querySelector('.upload-section').style.display = 'block';
-    }
-  </script>
+  
 </head>
 <body>
   <div class="header">
@@ -229,11 +225,24 @@
       <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
     </div>
   </div>
-  <div class="upload-section">
+  <!-- <div class="upload-section">
     <div class="upload-box">
       <p>Drag and drop an image here or click to upload</p>
+      <input type="file" id="fileInput" accept="image/jpeg, image/png" style="display: none;">
     </div>
     <p>Supported formats: JPEG, PNG. Max size: 5MB.</p>
+  </div> -->
+  <div class="upload-section">
+    <div class="upload-box" id="uploadBox">
+      <p>Drag and drop an image here or click to upload</p>
+      <input type="file" id="fileInput" accept="image/jpeg, image/png" style="display: none;">
+    </div>
+    <p>Supported formats: JPEG, PNG. Max size: 5MB.</p>
+    <p class="error-message" id="errorMessage"></p>
+    <div class="upload-preview" id="uploadPreview" style = "display:none">
+      <h3>Preview:</h3>
+      <img id="previewImage" src="" alt="Image Preview">
+    </div>
   </div>
   <div class="steps-section">
     <h2>How It Works</h2>
@@ -269,5 +278,73 @@
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></p>
     <p>Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
   </div>
+  <script>
+    function showUploadSection() {
+      document.querySelector('.upload-section').style.display = 'block';
+    }
+    const uploadBox = document.getElementById('uploadBox');
+    const fileInput = document.getElementById('fileInput');
+    const errorMessage = document.getElementById('errorMessage');
+    const uploadPreview = document.getElementById('uploadPreview');
+    const previewImage = document.getElementById('previewImage');
+
+    // Click to open file selector
+    uploadBox.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    // Handle file selection
+    fileInput.addEventListener('change', (event) => {
+      handleFileUpload(event.target.files[0]);
+      uploadPreview.style.display = "block";
+    });
+
+    // Drag & Drop functionality
+    uploadBox.addEventListener('dragover', (event) => {
+      event.preventDefault();
+      uploadBox.style.borderColor = "#000000";
+    });
+
+    uploadBox.addEventListener('dragleave', () => {
+      uploadBox.style.borderColor = "#ff4757";
+    });
+
+    uploadBox.addEventListener('drop', (event) => {
+      event.preventDefault();
+      uploadBox.style.borderColor = "#ff4757";
+      const file = event.dataTransfer.files[0];
+      handleFileUpload(file);
+      
+    });
+
+    function handleFileUpload(file) {
+      if (!file) return;
+
+      // Check file type
+      const validTypes = ["image/jpeg", "image/png"];
+      if (!validTypes.includes(file.type)) {
+        errorMessage.textContent = "Invalid file type. Only JPEG and PNG are allowed.";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        errorMessage.textContent = "File size exceeds 5MB limit.";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      errorMessage.style.display = "none";
+
+      // Preview uploaded image
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        previewImage.src = e.target.result;
+        uploadPreview.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
 </body>
 </html>
