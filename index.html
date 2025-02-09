@@ -94,30 +94,59 @@
     .upload-button:hover {
       background: #e84118;
     }
+    
     .steps-section {
-      text-align: center;
-      padding: 50px 20px;
-      background: #eceff1;
-    }
-    .steps-section h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #04395B;
-    }
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .step {
-      max-width: 250px;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+        text-align: center;
+        /* max-width: 1200px; */
+        margin: auto;
+        padding: 20px 10px;
+        background: #eceff1;
+      }
+      .steps-section h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #04395b;
+      }
+      .steps {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .step {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        width:300px;
+        height:250px;
+        max-height: 300px;
+        max-width: 300px;
+        text-align: center;
+      }
+      
+      .step video {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        /* border-radius: 8px; */
+      }
+      .step img
+      {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      
+      @media (max-width: 900px) {
+        .steps {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     .result-section {
       text-align: center;
       padding: 50px 20px;
@@ -154,53 +183,7 @@
       margin: 0 10px;
 
     }
-    .steps-section {
-      text-align: center;
-      padding: 50px 20px;
-      background: #eceff1;
-    }
-    .steps-section h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #04395B;
-    }
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .step {
-      max-width: 250px;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .result-section {
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .result-section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #04395B;
-      margin-bottom: 20px;
-    }
-    .result-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 900px;
-      margin: 20px auto;
-    }
-    .result-card div {
-      text-align: left;
-    }
+    
   </style>
   
 </head>
@@ -244,7 +227,7 @@
       <img id="previewImage" src="" alt="Image Preview">
     </div>
   </div>
-  <div class="steps-section">
+  <!-- <div class="steps-section">
     <h2>How It Works</h2>
     <div class="steps">
       <div class="step">
@@ -256,6 +239,26 @@
         <p>Our AI analyzes the image to identify the monument.</p>
       </div>
       <div class="step">
+        <h3>Get Results</h3>
+        <p>Receive detailed information about the monument.</p>
+      </div>
+    </div>
+  </div> -->
+  <div class="steps-section">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <img src="./images_videos/upload_bridge.png" alt="Upload Image" />
+        <h3>Upload Image</h3>
+        <p>Upload a clear image of the monument.</p>
+      </div>
+      <div class="step">
+        <video src="./images_videos/brivid.mp4" autoplay muted loop></video>
+        <h3>Analyze</h3>
+        <p>Our AI analyzes the image to identify the monument.</p>
+      </div>
+      <div class="step">
+        <img src="./images_videos/bridge square.jpg" alt="Get Results" />
         <h3>Get Results</h3>
         <p>Receive detailed information about the monument.</p>
       </div>
@@ -281,6 +284,7 @@
   <script>
     function showUploadSection() {
       document.querySelector('.upload-section').style.display = 'block';
+      document.querySelector('.upload-section').scrollIntoView({ behavior: 'smooth' });
     }
     const uploadBox = document.getElementById('uploadBox');
     const fileInput = document.getElementById('fileInput');
