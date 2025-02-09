@@ -158,8 +158,8 @@ body {
   }
 
   .card {
-    width: 402px;
-    height: 302px;
+    width: 502px;
+    height: 402px;
     border: 2px dashed #ccc;
     border-radius: 10px;
     display: flex;
@@ -207,8 +207,8 @@ body {
   }
 
   .details-card {
-    width: 396px;
-    height: 296px;
+    width: 496px;
+    height: 396px;
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 10px 0px 0px 20px;
@@ -219,10 +219,14 @@ body {
 
   .details-card h3 {
     margin-top: 0;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 35px;
   }
 
   .details-card p {
     margin: 5px 0;
+    font-size: 20px;
   }
 
   @keyframes spin {
