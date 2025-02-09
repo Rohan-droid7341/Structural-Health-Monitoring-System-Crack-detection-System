@@ -25,9 +25,16 @@
       </div>
     </div>
     <div class="hero">
-      <div class="container">
+      <div>
+        <h1>Discover the Secrets of History</h1>
+        <p>Upload an image of a monument and uncover its age, history, and more.</p>
+        <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
+      </div>
+    </div>
+    <div class = "hero1" style = "display:none">
+      <div class="container" >
         <div class="card" id="card">
-          <span>Drag & Drop an Image</span>
+          <span>Drag & Drop an Image or click to browse</span>
           <button id="browseBtn">Browse</button>
         </div>
         <div class="details-card" id="detailsCard">
@@ -38,19 +45,22 @@
           <p><strong>No. of Damages:</strong> <span id="damages">3</span></p>
         </div>
       </div>
-    </div>
+   </div>
     <div class="steps-section">
       <h2>How It Works</h2>
       <div class="steps">
         <div class="step">
+          <img src="./images_videos/upload_bridge.png" alt="Upload Image" />
           <h3>Upload Image</h3>
           <p>Upload a clear image of the monument.</p>
         </div>
         <div class="step">
+          <video src="./images_videos/brivid.mp4" autoplay muted loop></video>
           <h3>Analyze</h3>
           <p>Our AI analyzes the image to identify the monument.</p>
         </div>
         <div class="step">
+          <img src="./images_videos/bridge square.jpg" alt="Get Results" />
           <h3>Get Results</h3>
           <p>Receive detailed information about the monument.</p>
         </div>
