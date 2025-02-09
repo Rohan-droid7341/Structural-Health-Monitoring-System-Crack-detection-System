@@ -5,7 +5,10 @@ const card = document.getElementById('card');
     input.type = 'file';
     input.accept = 'image/*';
     input.style.display = 'none';
-
+    function showUploadSection() {
+      document.querySelector('.hero1').style.display = 'block';
+      document.querySelector('.hero1').scrollIntoView({ behavior: 'smooth' });
+    }
     // Handle drag and drop
     card.addEventListener('dragover', (e) => {
       e.preventDefault();
@@ -52,14 +55,16 @@ const card = document.getElementById('card');
       // Simulate backend processing
       setTimeout(() => {
         // Remove loader
+        const container = document.querySelector('.container');
         card.querySelector('.loader').remove();
-
+        card.style.borderStyle = 'solid';
+        card.style.borderColor = "#89c2d9";
+        card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+        container.style.justifyContent = 'space-evenly';
         // Shift the image card to the left
-        card.style.transform = 'translateX(-30%)';
-
         // Show the details card
         detailsCard.style.display = 'block';
-
+        
         // Populate sample details (replace with actual data from backend)
         document.getElementById('class').textContent = 'Good';
         document.getElementById('dimensions').textContent = 'Depth: 10cm, Length: 50cm, Breadth: 30cm';
