@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylish Layout</title>
+    <style>
+      .inspect-body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .inspect-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        width: 95vw;
+        height: 50vh;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        margin: 20px 0;
+      }
+
+      .inspect-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: brightness(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .inspect-content {
+        position: relative;
+        padding: 40px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+      }
+      .text-content {
+        width: 50vw;
+      }
+
+      .stylish-btn {
+        /* align-self: flex-end; */
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+        border: none;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stylish-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .stylish-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      .stylish-btn:hover::before {
+        left: 100%;
+      }
+
+      .text-content {
+        max-width: 600px;
+      }
+
+      .text-content h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .text-content p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+
+      /* Optional: Add hover effect to image */
+      .inspect-container:hover .inspect-image {
+        transform: scale(1.03);
+      }
+
+      /* Responsive design */
+        @media (max-width: 768px) {
+            .text-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .inspect-content {
+                padding: 20px;
+            }
+            
+            .stylish-btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .inspect-container {
+                height: 60vh;
+                border-radius: 0;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="inspect-body">
+      <div class="inspect-container">
+        <img
+          src="https://media.cnn.com/api/v1/images/stellar/prod/170221140207-golden-gate-bridge.jpg?q=w_3000,h_1969,x_0,y_0,c_fill"
+          alt="inspect Image"
+          class="inspect-image"
+        />
+        <div class="inspect-content">
+          <div class="text-content">
+            <h1>Discover Amazing Things</h1>
+            <p>
+              Explore the world of possibilities with our premium collection of
+              experiences and services.
+            </p>
+          </div>
+          <div>
+            <button class="stylish-btn">Inspect Condition</button>
+          </div>
+        </div>
+      </div>
+      <div class="inspect-container">
+        <img
+          src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
+          alt="inspect Image"
+          class="inspect-image"
+        />
+        <div class="inspect-content">
+          <div class="text-content">
+            <h1>Discover Amazing Things</h1>
+            <p>
+              Explore the world of possibilities with our premium collection of
+              experiences and services.
+            </p>
+          </div>
+          <div>
+            <button class="stylish-btn">Inspect Condition</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
