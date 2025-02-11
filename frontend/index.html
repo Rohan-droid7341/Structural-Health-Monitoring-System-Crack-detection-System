@@ -1,614 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Construct - Monument Age Detector</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-  font-family:  Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f8f9fa;
-  color: #333;
-}
-.header {
-  background: #04395b;
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header img {
-  height: 50px;
-  margin-right: 15px;
-}
-.header h1 {
-  font-size: 1.8rem;
-  margin: 0;
-}
-.nav {
-  display: flex;
-  gap: 20px;
-}
-.nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-.nav a:hover {
-  color: #ff6b6b;
-}
 
-.steps-section {
-  text-align: center;
-  /* max-width: 1200px; */
-  margin: auto;
-  padding: 20px 10px;
-  background: #eceff1;
-}
-.steps-section h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #04395b;
-}
-.steps {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.step {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  width: 300px;
-  height: 250px;
-  max-height: 300px;
-  max-width: 300px;
-  text-align: center;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construct - Monument Age Detector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
 
-.step video {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  /* border-radius: 8px; */
-}
-.step img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-}
+    .header {
+      background: #04395b;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-@media (max-width: 900px) {
-  .steps {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+    .header img {
+      height: 50px;
+      /* margin-right: 5px; */
+    }
 
-.footer {
-  background: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-.footer a {
-  color: #ff6b6b;
-  text-decoration: none;
-  margin: 0 10px;
-}
+    .header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
 
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  margin: 0;
-  /* font-family: Arial, sans-serif; */
-  background-image: url(https://wallpapers.com/images/hd/construction-workers-looking-up-at-crane-8yehx0ze4t4tno03.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgb(247, 246, 246);
-  font-size: 25px;
-  color: #faf9f8;
-}
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
 
-.hero h1 {
-  font-size: 3.5rem;
-  margin: 0;
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  color: #f0f3f6;
-}
-.hero1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-.upload-button {
-  background: #ff4757;
-  color: white;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.upload-button:hover {
-  background: #e84118;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  padding: 50px;
-  gap: 20px;
-}
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-.card {
-  width: 502px;
-  height: 402px;
-  border: 2px dashed #008080;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  background-color: white;
-  transition: transform 0.3s ease;
-}
+    .nav a:hover {
+      color: #ff6b6b;
+    }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+    .steps-section {
+      text-align: center;
+      /* max-width: 1200px; */
+      margin: auto;
+      padding: 20px 10px;
+      background: #eceff1;
+    }
 
-.card button {
-  position: absolute;
-  bottom: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .steps-section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #04395b;
+    }
 
-.card.dragover {
-  border-color: #89c2d9;
-}
+    .steps {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.loader {
-  border: 4px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 4px solid #3498db;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-  position: absolute;
-  z-index: 2;
-}
+    .step {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      width: 300px;
+      height: 250px;
+      max-height: 300px;
+      max-width: 300px;
+      text-align: center;
+    }
 
-.details-card {
-  box-sizing: border-box;
-  width: 502px;
-  height: 402px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 10px 0px 0px 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: none; /* Initially hidden */
-}
+    .step video {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      /* border-radius: 8px; */
+    }
 
-.details-card h3 {
-  margin-top: 0;
-  text-align: center;
-  padding-bottom: 15px;
-  font-size: 35px;
-}
+    .step img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-.details-card p {
-  margin: 5px 0;
-  font-size: 20px;
-}
+    @media (max-width: 900px) {
+      .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
 
-.inspect-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
+    .footer a {
+      color: #ff6b6b;
+      text-decoration: none;
+      margin: 0 10px;
+    }
 
-.inspect-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  width: 95vw;
-  height: 50vh;
-  border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  margin: 20px 0;
-}
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      margin: 0;
+      /* font-family: Arial, sans-serif; */
+      background-image: url(https://wallpapers.com/images/hd/construction-workers-looking-up-at-crane-8yehx0ze4t4tno03.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      font-family: "Poppins", sans-serif;
+      background-color: #ffffff;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgb(247, 246, 246);
+      font-size: 25px;
+      color: #faf9f8;
+    }
 
-.inspect-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: brightness(0.8);
-  transition: transform 0.3s ease;
-}
+    .hero h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      color: #f0f3f6;
+    }
 
-.inspect-content {
-  position: relative;
-  padding: 40px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: white;
-}
-.text-content {
-  width: 50vw;
-}
+    .hero1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
 
-.stylish-btn {
-  /* align-self: flex-end; */
-  padding: 15px 35px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
-  border: none;
-  border-radius: 30px;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-  position: relative;
-  overflow: hidden;
-}
+    .upload-button {
+      background: #ff4757;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.stylish-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: 0.5s;
-}
+    .upload-button:hover {
+      background: #e84118;
+    }
 
-.stylish-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
-}
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      padding: 50px;
+      gap: 20px;
+    }
 
-.stylish-btn:hover::before {
-  left: 100%;
-}
+    .card {
+      width: 502px;
+      height: 402px;
+      border: 2px dashed #008080;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-color: white;
+      transition: transform 0.3s ease;
+    }
 
-.text-content {
-  max-width: 600px;
-}
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-.text-content h1 {
-  font-size: 3.5rem;
-  margin: 0;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
+    .card button {
+      position: absolute;
+      bottom: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.text-content p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
+    .card.dragover {
+      border-color: #89c2d9;
+    }
 
-/* Optional: Add hover effect to image */
-.inspect-container:hover .inspect-image {
-  transform: scale(1.03);
-}
+    .loader {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      position: relative;
+      animation: rotate 1s linear infinite
+    }
 
-/* Responsive design */
-  @media (max-width: 768px) {
+    .loader::before,
+    .loader::after {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      inset: 0px;
+      border-radius: 50%;
+      border: 5px solid #FFF;
+      animation: prixClipFix 2s linear infinite;
+    }
+
+    .loader::after {
+      border-color: #FF3D00;
+      animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+      inset: 6px;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes prixClipFix {
+      0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+      }
+
+      25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+      }
+
+      50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+      }
+
+      75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+      }
+
+      100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+      }
+    }
+
+    .details-card {
+      box-sizing: border-box;
+      width: 502px;
+      height: 402px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px 0px 0px 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+      /* Initially hidden */
+    }
+
+    .details-card h3 {
+      margin-top: 0;
+      text-align: center;
+      padding-bottom: 15px;
+      font-size: 35px;
+    }
+
+    .details-card p {
+      margin: 5px 0;
+      font-size: 20px;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .inspect-body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .inspect-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 95vw;
+      height: 50vh;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      margin: 20px 0;
+    }
+
+    .inspect-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: brightness(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    .inspect-content {
+      position: relative;
+      padding: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .text-content {
+      width: 50vw;
+    }
+
+    .stylish-btn {
+      /* align-self: flex-end; */
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stylish-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent);
+      transition: 0.5s;
+    }
+
+    .stylish-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    }
+
+    .stylish-btn:hover::before {
+      left: 100%;
+    }
+
+    .text-content {
+      max-width: 600px;
+    }
+
+    .text-content h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .text-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Optional: Add hover effect to image */
+    .inspect-container:hover .inspect-image {
+      transform: scale(1.03);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
       .text-content h1 {
-          font-size: 2.5rem;
+        font-size: 2.5rem;
       }
-      
-      .inspect-content {
-          padding: 20px;
-      }
-      
-      .stylish-btn {
-          padding: 12px 25px;
-          font-size: 0.9rem;
-      }
-      
-      .inspect-container {
-          height: 60vh;
-          border-radius: 0;
-      }
-  }
-  .inspect-body h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #04395b;
-  }
-  
 
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <div style="display: flex; align-items: center">
-        <img src="/frontend/images_videos/logo.png" alt="Construct Logo" />
-        <h1>Construct( )</h1>
-      </div>
-      <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Assets</a>
-        <a href="#">Services</a>
-        <a href="#">Functionality</a>
-      </div>
+      .inspect-content {
+        padding: 20px;
+      }
+
+      .stylish-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+
+      .inspect-container {
+        height: 60vh;
+        border-radius: 0;
+      }
+    }
+
+    .inspect-body h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #04395b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center">
+      <img src="/frontend/images_videos/logo.png" alt="Construct Logo" />
+      <h1>Construct( )</h1>
     </div>
-    <!-- <div class="hero">
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Assets</a>
+      <a href="#">Services</a>
+      <a href="#">Functionality</a>
+    </div>
+  </div>
+  <!-- <div class="hero">
       <div>
         <h1>Discover the Secrets of History</h1>
         <p>Upload an image of a monument and uncover its age, history, and more.</p>
         <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
       </div>
     </div> -->
-    <div class="hero">
-      <div>
-        <h1>Smart AI for Structural Safety</h1>
-        <p>Ensure the safety of bridges and buildings with AI-driven crack detection and condition analysis.</p>
-        <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
+  <div class="hero">
+    <div>
+      <h1>Smart AI for Structural Safety</h1>
+      <p>Ensure the safety of bridges and buildings with AI-driven crack detection and condition analysis.</p>
+      <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
+    </div>
+  </div>
+  <div class="hero1" style="display:none">
+    <div class="container">
+      <div class="card" id="card">
+        <span>Drag & Drop an Image or click to browse</span>
+        <button id="browseBtn">Browse</button>
+      </div>
+      <div class="details-card" id="detailsCard">
+        <h3>Image Details</h3>
+        <p><strong>Class:</strong> <span id="class">Good</span></p>
+        <p><strong>Dimensions:</strong> <span id="dimensions">Depth: 10cm, Length: 50cm, Breadth: 30cm</span></p>
+        <p><strong>Type of Crack:</strong> <span id="crackType">Pothole</span></p>
+        <p><strong>No. of Damages:</strong> <span id="damages">3</span></p>
       </div>
     </div>
-      <div class = "hero1" style = "display:none">
-        <div class="container" >
-          <div class="card" id="card">
-            <span>Drag & Drop an Image or click to browse</span>
-            <button id="browseBtn">Browse</button>
-          </div>
-          <div class="details-card" id="detailsCard">
-            <h3>Image Details</h3>
-            <p><strong>Class:</strong> <span id="class">Good</span></p>
-            <p><strong>Dimensions:</strong> <span id="dimensions">Depth: 10cm, Length: 50cm, Breadth: 30cm</span></p>
-            <p><strong>Type of Crack:</strong> <span id="crackType">Pothole</span></p>
-            <p><strong>No. of Damages:</strong> <span id="damages">3</span></p>
-          </div>
-        </div>
-    </div>
-    <div class="steps-section">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div class="step">
-          <img src="/frontend/images_videos/upload_bridge.png" alt="Upload Image" />
-          <h3>Upload Image</h3>
-          <p>Upload a clear image of the monument.</p>
-        </div>
-        <div class="step">
-          <video src="/frontend/images_videos/brivid.mp4" autoplay muted loop></video>
-          <h3>Analyze</h3>
-          <p>Our AI analyzes the image to identify the monument.</p>
-        </div>
-        <div class="step">
-          <img src="/frontend/images_videos/bridge square.jpg" alt="Get Results" />
-          <h3>Get Results</h3>
-          <p>Receive detailed information about the monument.</p>
-        </div>
+  </div>
+  <div class="steps-section">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <img src="/frontend/images_videos/upload_bridge.png" alt="Upload Image" />
+        <h3>Upload Image</h3>
+        <p>Upload a clear image of the monument.</p>
+      </div>
+      <div class="step">
+        <video src="/frontend/images_videos/brivid.mp4" autoplay muted loop></video>
+        <h3>Analyze</h3>
+        <p>Our AI analyzes the image to identify the monument.</p>
+      </div>
+      <div class="step">
+        <img src="/frontend/images_videos/bridge square.jpg" alt="Get Results" />
+        <h3>Get Results</h3>
+        <p>Receive detailed information about the monument.</p>
       </div>
     </div>
-    <div class="inspect-body">
-      <h2>Bridge & Building Condition Assessment</h2>
-      
-      <div class="inspect-container">
-        <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/170221140207-golden-gate-bridge.jpg?q=w_3000,h_1969,x_0,y_0,c_fill"
-          alt="Bridge Inspection"
-          class="inspect-image"
-        />
-        <div class="inspect-content">
-          <div class="text-content">
-            <h1>🔍 Bridge Health Check</h1>
-            <p>
-              Identify cracks, corrosion, and structural weaknesses in bridges before they become hazards. Our AI-powered analysis provides real-time condition ratings.
-            </p>
-          </div>
-          <div>
-            <button class="stylish-btn">Check Bridge Condition</button>
-          </div>
-        </div>
-      </div>
+  </div>
+  <div class="inspect-body">
+    <h2>Bridge & Building Condition Assessment</h2>
 
-      <div class="inspect-container">
-        <img
-          src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
-          alt="Building Safety Inspection"
-          class="inspect-image"
-        />
-        <div class="inspect-content">
-          <div class="text-content">
-            <h1>🏢 Building Safety Analysis</h1>
-            <p>
-              Get AI-powered assessments for cracks, foundation stability, and overall structural safety in buildings. Ensure timely maintenance and risk prevention.
-            </p>
-          </div>
-          <div>
-            <button class="stylish-btn">Analyze Building</button>
-          </div>
+    <div class="inspect-container">
+      <img
+        src="https://media.cnn.com/api/v1/images/stellar/prod/170221140207-golden-gate-bridge.jpg?q=w_3000,h_1969,x_0,y_0,c_fill"
+        alt="Bridge Inspection" class="inspect-image" />
+      <div class="inspect-content">
+        <div class="text-content">
+          <h1>🔍 Bridge Health Check</h1>
+          <p>
+            Identify cracks, corrosion, and structural weaknesses in bridges before they become hazards. Our AI-powered
+            analysis provides real-time condition ratings.
+          </p>
+        </div>
+        <div>
+          <button class="stylish-btn">Check Bridge Condition</button>
         </div>
       </div>
     </div>
 
-    <div class="footer">
-      <p>&copy; 2025 Construct. All rights reserved.</p>
-      <p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
-        <a href="#">Contact Us</a>
-      </p>
-      <p>
-        Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
-        <a href="#">Instagram</a>
-      </p>
+    <div class="inspect-container">
+      <img
+        src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
+        alt="Building Safety Inspection" class="inspect-image" />
+      <div class="inspect-content">
+        <div class="text-content">
+          <h1>🏢 Building Safety Analysis</h1>
+          <p>
+            Get AI-powered assessments for cracks, foundation stability, and overall structural safety in buildings.
+            Ensure timely maintenance and risk prevention.
+          </p>
+        </div>
+        <div>
+          <button class="stylish-btn">Analyze Building</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Construct. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
+      <a href="#">Contact Us</a>
+    </p>
+    <p>
+      Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+      <a href="#">Instagram</a>
+    </p>
+  </div>
 
   <script>
-    const card = document.getElementById('card');
-const browseBtn = document.getElementById('browseBtn');
-const detailsCard = document.getElementById('detailsCard');
-const input = document.createElement('input');
-input.type = 'file';
-input.accept = 'image/*';
-input.style.display = 'none';
+    const card=document.getElementById('card');
+    const browseBtn=document.getElementById('browseBtn');
+    const detailsCard=document.getElementById('detailsCard');
+    const input=document.createElement('input');
+    input.type='file';
+    input.accept='image/*';
+    input.style.display='none';
 
-function showUploadSection() {
-  document.querySelector('.hero1').style.display = 'block';
-  document.querySelector('.hero1').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Handle drag and drop
-card.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  card.classList.add('dragover');
-});
-
-card.addEventListener('dragleave', () => {
-  card.classList.remove('dragover');
-});
-
-card.addEventListener('drop', async (e) => {
-  e.preventDefault();
-  card.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  handleFile(file);
-});
-
-// Handle manual browsing
-browseBtn.addEventListener('click', () => input.click());
-
-input.addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  handleFile(file);
-});
-
-async function handleFile(file) {
-  if (!file || !file.type.startsWith('image/')) return;
-
-  // Create a FileReader to convert the image file to Base64
-  const reader = new FileReader();
-  reader.onload = async (event) => {
-    // Clear card and display image preview
-    card.innerHTML = '';
-    const img = document.createElement('img');
-    img.src = event.target.result;
-    card.appendChild(img);
-
-    // Add loader element
-    const loader = document.createElement('div');
-    loader.className = 'loader';
-    card.appendChild(loader);
-
-    // Extract the Base64 string (remove header info)
-    const base64String = event.target.result.split(',')[1];
-
-    try {
-      // Send the image to the backend via POST
-      const response = await fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: base64String })
-      });
-
-      // Wait for and process the JSON response
-      const data = await response.json();
-
-      // Remove loader
-      loader.remove();
-
-      // Update styling for the card
-      card.style.borderStyle = 'solid';
-      card.style.borderColor = "#89c2d9";
-      card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-      document.querySelector('.container').style.justifyContent = 'space-evenly';
-
-      // Show the details card
-      detailsCard.style.display = 'block';
-
-      // Update the details card with data from the backend
-      // Adjust these lines based on the JSON structure your backend returns
-      document.getElementById('class').textContent = data.road_condition || 'N/A';
-      // For example, if your backend returns dimensions, crack type, and number of damages:
-      document.getElementById('dimensions').textContent = data.dimensions || 'N/A';
-      document.getElementById('crackType').textContent = data.crack_type || 'N/A';
-      document.getElementById('damages').textContent = data.crack_count || 'N/A';
-
-    } catch (error) {
-      console.error('Error during prediction:', error);
-      loader.remove();
-      card.innerHTML += '<p style="color:red;">An error occurred. Please try again.</p>';
+    function showUploadSection() {
+      document.querySelector('.hero1').style.display='block';
+      document.querySelector('.hero1').scrollIntoView({behavior: 'smooth'});
     }
-  };
-  reader.readAsDataURL(file);
-}
 
-function resetCard() {
-  card.innerHTML = '';
-  card.innerHTML = '<span>Drag & Drop an Image</span>';
-  card.appendChild(browseBtn);
-  card.style.transform = 'translateX(0)';
-  detailsCard.style.display = 'none';
-}
+    // Handle drag and drop
+    card.addEventListener('dragover',(e) => {
+      e.preventDefault();
+      card.classList.add('dragover');
+    });
 
-  </script>  
-  </body>
+    card.addEventListener('dragleave',() => {
+      card.classList.remove('dragover');
+    });
+
+    card.addEventListener('drop',async (e) => {
+      e.preventDefault();
+      card.classList.remove('dragover');
+      const file=e.dataTransfer.files[0];
+      handleFile(file);
+    });
+
+    // Handle manual browsing
+    browseBtn.addEventListener('click',() => input.click());
+
+    input.addEventListener('change',(e) => {
+      const file=e.target.files[0];
+      handleFile(file);
+    });
+
+    async function handleFile(file) {
+      if(!file||!file.type.startsWith('image/')) return;
+
+      // Create a FileReader to convert the image file to Base64
+      const reader=new FileReader();
+      reader.onload=async (event) => {
+        // Clear card and display image preview
+        card.innerHTML='';
+        const img=document.createElement('img');
+        img.src=event.target.result;
+        card.appendChild(img);
+
+        // Add loader element
+        const loader=document.createElement('div');
+        loader.className='loader';
+        card.appendChild(loader);
+
+        // Extract the Base64 string (remove header info)
+        const base64String=event.target.result.split(',')[1];
+
+        try {
+          // Send the image to the backend via POST
+          const response=await fetch('http://127.0.0.1:5000/predict',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({image: base64String})
+          });
+
+          // Wait for and process the JSON response
+          const data=await response.json();
+
+          // Remove loader
+          loader.remove();
+
+          // Update styling for the card
+          card.style.borderStyle='solid';
+          card.style.borderColor="#89c2d9";
+          card.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';
+          document.querySelector('.container').style.justifyContent='space-evenly';
+
+          // Show the details card
+          detailsCard.style.display='block';
+
+          // Update the details card with data from the backend
+          // Adjust these lines based on the JSON structure your backend returns
+          document.getElementById('class').textContent=data.road_condition||'N/A';
+          // For example, if your backend returns dimensions, crack type, and number of damages:
+          document.getElementById('dimensions').textContent=data.dimensions||'N/A';
+          document.getElementById('crackType').textContent=data.crack_type||'N/A';
+          document.getElementById('damages').textContent=data.crack_count||'N/A';
+
+        } catch(error) {
+          console.error('Error during prediction:',error);
+          loader.remove();
+          card.innerHTML+='<p style="color:red;">An error occurred. Please try again.</p>';
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetCard() {
+      card.innerHTML='';
+      card.innerHTML='<span>Drag & Drop an Image</span>';
+      card.appendChild(browseBtn);
+      card.style.transform='translateX(0)';
+      detailsCard.style.display='none';
+    }
+
+  </script>
+</body>
+
 </html>
