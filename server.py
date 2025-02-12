@@ -5,7 +5,7 @@ import io
 from PIL import Image
 import os
 
-app = Flask(__name__, static_folder='frontend', template_folder='frontend')
+app = Flask(__name__, template_folder="frontend", static_folder="frontend/dist")
 
 # Load your pickled model (make sure model.pkl is in the same directory)
 with open('model.pkl', 'rb') as f:
@@ -50,13 +50,25 @@ def run_prediction(image_path):
     else:
         return {"error": "Prediction response is not in JSON format"}
 
+# Serve index.html
 @app.route('/')
 def serve_index():
-    return render_template('index.html')  # Serves the frontend HTML
+    return render_template('index.html')
 
-@app.route('/static/<path:filename>')
+# Serve road.html
+@app.route('/road')
+def serve_road():
+    return render_template('road.html')
+
+# Serve static files (CSS, JS, Images)
+@app.route('/dist/<path:filename>')
 def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)  # Serves static files
+    return send_from_directory("frontend/dist", filename)
+
+# Serve images & videos
+@app.route('/images_videos/<path:filename>')
+def serve_media(filename):
+    return send_from_directory("frontend/images_videos", filename)
 
 @app.route('/predict', methods=['POST'])
 def predict():
