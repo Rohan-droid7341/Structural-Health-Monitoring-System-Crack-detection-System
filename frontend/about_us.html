@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fb;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .header {
+        background: #04395b;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header img {
+        height: 50px;
+      }
+
+      .header h1 {
+        font-size: 1.8rem;
+        margin: 0;
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ff6b6b;
+      }
+
+      .hero {
+        background-image: url("./images_videos/about.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        font-size: 4em;
+        color: #00ffff;
+        text-shadow: 0 0 5px #00ffff, 0 0 15px #00ccff, 0 0 25px #0099ff;
+      }
+
+      .empowering-text {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #00e6ff, 0 0 20px #0088aa;
+        letter-spacing: 2px;
+      }
+
+      /* Geometric layout for alternating content */
+      .section-content {
+        padding: 60px 10%;
+        background-color: #ffffff;
+      }
+
+      .section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .section:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .section div {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .section h2 {
+        font-size: 2.5rem;
+        color: #04395b;
+        margin-bottom: 15px;
+      }
+
+      .section p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 25px;
+      }
+
+      .section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      .footer a {
+        color: #ff6b6b;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="display: flex; align-items: center">
+        <img src="./images_videos/logo.png" alt="Construct Logo" />
+        <h1>Construct( )</h1>
+      </div>
+      <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Assets</a>
+        <a href="#">Services</a>
+        <a href="#">Functionality</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>About Us</h1>
+        <h2 class="empowering-text">Empowering Infrastructure with Artificial Intelligence</h2>
+      </div>
+    </section>
+
+    <section class="section-content">
+      <div class="section">
+        <div>
+          <h2>Our Mission</h2>
+          <p>At Construct, we are committed to revolutionizing the way we monitor and maintain critical infrastructure. Our goal is to utilize cutting-edge Artificial Intelligence (AI) to proactively assess the health of roads, bridges, and buildings, helping to predict maintenance needs before they become emergencies.</p>
+        </div>
+        <div>
+          <img src="./images_videos/mission1.jpg" alt="Mission Image" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div>
+          <h2>Our Vision</h2>
+          <p>We envision a future where smart technology is integrated into every facet of infrastructure management, enhancing longevity and safety while reducing the risk of failures.</p>
+        </div>
+        <div>
+          <img src="./images_videos/vision2.jpg" alt="Vision Image" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div>
+          <h2>What We Do</h2>
+          <p>We specialize in AI-driven systems to monitor infrastructure health in real time. Our platform detects early signs of wear, stress, or failure, allowing for proactive maintenance and safety improvements.</p>
+        </div>
+        <div>
+          <img src="./images_videos/what1.jpg" alt="What We Do Image" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div>
+          <h2>Our Technology</h2>
+          <p>Our platform utilizes machine learning models to analyze structural health sensors, environmental data, and maintenance records. This enables accurate predictions and real-time alerts to help decision-makers act promptly.</p>
+        </div>
+        <div>
+          <img src="./images_videos/our_technology.jpg" alt="Technology Image" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div>
+          <h2>Why It Matters</h2>
+          <p>Infrastructure failures can have disastrous consequences. By integrating AI into monitoring, we minimize disruptions, reduce costs, and save lives.</p>
+        </div>
+        <div>
+          <img src="./images_videos/why_matters.jpg" alt="Why It Matters Image" />
+        </div>
+      </div>
+
+      <div class="section">
+        <div>
+          <h2>Join Us on Our Journey</h2>
+          <p>We welcome innovative minds to join us in building smarter, safer, and more resilient infrastructure.</p>
+        </div>
+        <div>
+          <img src="./images_videos/journey.jpg" alt="Join Us Image" />
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>&copy; 2025 Construct. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
+        <a href="#">Contact Us</a>
+      </p>
+      <p>
+        Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+        <a href="#">Instagram</a>
+      </p>
+    </div>
+  </body>
+</html>
