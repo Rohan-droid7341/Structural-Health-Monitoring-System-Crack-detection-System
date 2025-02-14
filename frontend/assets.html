@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Construct - Monument Age Detector</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+  font-family:  Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+.header {
+  background: #04395b;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header img {
+  height: 50px;
+  margin-right: 15px;
+}
+.header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+.nav {
+  display: flex;
+  gap: 20px;
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.nav a:hover {
+  color: #ff6b6b;
+}
+
+.footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+.footer a {
+  color: #ff6b6b;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 90vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgb(247, 246, 246);
+  font-size: 25px;
+  color: #faf9f8;
+}
+
+.assets {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+.search {
+            font-size: 3rem;
+            color: grey;
+            outline: none;
+            border: none;
+            background: transparent;
+            /* text-align: center; */
+            width: 100%;
+        }
+span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 50px;
+}
+.stylish-btn {
+  /* align-self: flex-end; */
+  padding: 15px 35px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.stylish-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.stylish-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+.stylish-btn:hover::before {
+  left: 100%;
+}
+  
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="display: flex; align-items: center">
+        <img src="/images_videos/logo.png" alt="Construct Logo" />
+        <h1>Construct( )</h1>
+      </div>
+      <div class="nav">
+        <a href="/">Home</a>
+      <a href="/about_us">About Us</a>
+      <a href="/assets"">Assets</a>
+      <a href="/service">Services</a>
+      <a href="#">Functionality</a>
+      </div>
+    </div>
+    <div class="hero">
+        <span><input type="text" class="search" placeholder="Search Assets " autofocus></span>
+        <div>
+            <button class="stylish-btn">Search</button>
+          </div>
+          
+    </div>
+    
+    <div class="footer">
+      <p>&copy; 2025 Construct. All rights reserved.</p>
+      <p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
+        <a href="#">Contact Us</a>
+      </p>
+      <p>
+        Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+        <a href="#">Instagram</a>
+      </p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.querySelector(".search");
+            const searchButton = document.querySelector(".stylish-btn");
+    
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    // Redirect to the UP PWD search results page with the query
+                    window.location.href = `https://uppwd.gov.in/post/search-result?q=${encodeURIComponent(query)}`;
+                }
+            }
+    
+            searchButton.addEventListener("click", performSearch);
+    
+            searchInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+    
+  </body>
+</html>

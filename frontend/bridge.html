@@ -124,10 +124,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 80vh;
       margin: 0;
       /* font-family: Arial, sans-serif; */
-      background-image: url(https://images.unsplash.com/photo-1519817914152-22d216bb9170?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-image: url(https://images.unsplash.com/photo-1422405061047-61f0cf84c1dc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -442,6 +443,97 @@
       margin-bottom: 20px;
       color: #04395b;
     }
+
+    .btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            background: #ff5722;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            margin: 5px;
+        }
+        .btn:hover { background: #e64a19; }
+        .form-container {
+            width: 60%;
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            display: none;
+        }
+        .form-container.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+        .input-group {
+            display: none;
+            margin-bottom: 20px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            position: relative;
+        }
+        .input-group.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .tooltip {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            position: absolute;
+            left: 30px;
+            top: -5px;
+            transform: translateX(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .question-mark {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: #007bff;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 5px;
+            position: relative;
+        }
+        .question-mark:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
   </style>
 </head>
 
@@ -455,32 +547,137 @@
       <a href="/">Home</a>
       <a href="/about_us">About Us</a>
       <a href="/assets"">Assets</a>
-      <a href="/service">Services</a>
+      <a href=" /service">Services</a>
       <a href="#">Functionality</a>
     </div>
   </div>
+
   <div class="hero">
-    <div>
-      <h1>Smart AI for Structural Safety</h1>
-      <p>Ensure the safety of Road with AI-driven crack detection and condition analysis.</p>
-      <button class="upload-button" onclick="showUploadSection()">Upload Image</button>
-    </div>
+    <h1>Smart AI for Structural Safety</h1>
+    <p>Ensure the safety of bridges with AI-driven crack detection and condition analysis.</p>
+    <button class="btn upload-button" onclick="showForm()">Enter Details</button>
   </div>
-  <div class="hero1" style="display:none">
-    <div class="container">
-      <div class="card" id="card">
-        <span>Drag & Drop an Image or click to browse</span>
-        <button id="browseBtn">Browse</button>
+  <div class="form-container" id="form">
+    <h2>Enter Bridge Details</h2>
+
+    <form id="dataForm">
+      <div class="input-group active">
+        <label>
+          Service Level
+          <span class="question-mark">?
+            <span class="tooltip">Bridge service level classification.</span>
+          </span>
+        </label>
+        <input type="number" name="SERVICE_LEVEL_005C">
       </div>
-      <div class="details-card" id="detailsCard">
-        <h3>Image Details</h3>
-        <p><strong>Class:</strong> <span id="class">Good</span></p>
-        <p><strong>Dimensions:</strong> <span id="dimensions">Depth: 10cm, Length: 50cm, Breadth: 30cm</span></p>
-        <p><strong>Type of Crack:</strong> <span id="crackType">Pothole</span></p>
-        <p><strong>No. of Damages:</strong> <span id="damages">3</span></p>
+
+      <div class="input-group">
+        <label>
+          Highway Network
+          <span class="question-mark">?
+            <span class="tooltip">Is the bridge part of a highway?</span>
+          </span>
+        </label>
+        <input type="number" name="BASE_HWY_NETWORK_012">
       </div>
-    </div>
+
+      <div class="input-group">
+        <label>
+          Year Built
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="YEAR_BUILT_027">
+      </div>
+
+      <div class="input-group">
+        <label>ADT (Average Daily Traffic)
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="ADT_029">
+      </div>
+
+      <div class="input-group">
+        <label>Structure Flared
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="STRUCTURE_FLARED_035">
+      </div>
+
+      <div class="input-group">
+        <label>Structure Kind
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="STRUCTURE_KIND_043A">
+      </div>
+
+      <div class="input-group">
+        <label>Main Unit Spans
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="MAIN_UNIT_SPANS_045">
+      </div>
+
+      <div class="input-group">
+        <label>Structure Length (m)
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="STRUCTURE_LEN_MT_049">
+      </div>
+
+      <div class="input-group">
+        <label>Traffic Direction
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="TRAFFIC_DIRECTION_102">
+      </div>
+
+      <div class="input-group">
+        <label>Year Reconstructed
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="YEAR_RECONSTRUCTED_106">
+      </div>
+
+      <div class="input-group">
+        <label>Deck Structure Type
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="text" name="DECK_STRUCTURE_TYPE_107">
+      </div>
+
+      <div class="input-group">
+        <label>Percentage of ADT Trucks
+          <span class="question-mark">?
+            <span class="tooltip">Year when the bridge was constructed.</span>
+          </span>
+        </label>
+        <input type="number" name="PERCENT_ADT_TRUCK_109">
+      </div>
+
+      <button class="btn" type="button" onclick="prevInput()" style="display:none;" id="prevBtn">Previous</button>
+      <button class="btn" type="button" onclick="nextInput()">Next</button>
+      <button class="btn" type="submit" style="display:none;">Submit</button>
+    </form>
   </div>
+
   <div class="steps-section">
     <h2>How It Works</h2>
     <div class="steps">
@@ -502,22 +699,21 @@
     </div>
   </div>
   <div class="inspect-body">
-    <h2>Bridge & Building Condition Assessment</h2>
+    <h2>Road & Building Condition Assessment</h2>
 
     <div class="inspect-container">
       <img
-        src="https://media.cnn.com/api/v1/images/stellar/prod/170221140207-golden-gate-bridge.jpg?q=w_3000,h_1969,x_0,y_0,c_fill"
+        src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Bridge Inspection" class="inspect-image" />
       <div class="inspect-content">
         <div class="text-content">
-          <h1>🔍 Bridge Health Check</h1>
+          <h1>🔍 Road Health Check</h1>
           <p>
-            Identify cracks, corrosion, and structural weaknesses in bridges before they become hazards. Our AI-powered
-            analysis provides real-time condition ratings.
+            Analyze road conditions in real-time to enhance safety and prevent accidents.
           </p>
         </div>
         <div>
-          <button class="stylish-btn" onclick="window.location.href='/bridge'">Check Bridge Condition</button>
+          <button class="stylish-btn" onclick="window.location.href='/road'">Check Road Condition</button>
         </div>
       </div>
     </div>
@@ -554,112 +750,37 @@
   </div>
 
   <script>
-    const card=document.getElementById('card');
-    const browseBtn=document.getElementById('browseBtn');
-    const detailsCard=document.getElementById('detailsCard');
-    const input=document.createElement('input');
-    input.type='file';
-    input.accept='image/*';
-    input.style.display='none';
-
-    function showUploadSection() {
-      document.querySelector('.hero1').style.display='block';
-      document.querySelector('.hero1').scrollIntoView({behavior: 'smooth'});
+    function showForm() {
+      const form=document.getElementById("form");
+      form.classList.add("show");
+      setTimeout(() => {
+        window.scrollTo({top: form.offsetTop-20,behavior: "smooth"});
+      },300);
     }
 
-    // Handle drag and drop
-    card.addEventListener('dragover',(e) => {
-      e.preventDefault();
-      card.classList.add('dragover');
-    });
-
-    card.addEventListener('dragleave',() => {
-      card.classList.remove('dragover');
-    });
-
-    card.addEventListener('drop',async (e) => {
-      e.preventDefault();
-      card.classList.remove('dragover');
-      const file=e.dataTransfer.files[0];
-      handleFile(file);
-    });
-
-    // Handle manual browsing
-    browseBtn.addEventListener('click',() => input.click());
-
-    input.addEventListener('change',(e) => {
-      const file=e.target.files[0];
-      handleFile(file);
-    });
-
-    async function handleFile(file) {
-      if(!file||!file.type.startsWith('image/')) return;
-
-      // Create a FileReader to convert the image file to Base64
-      const reader=new FileReader();
-      reader.onload=async (event) => {
-        // Clear card and display image preview
-        card.innerHTML='';
-        const img=document.createElement('img');
-        img.src=event.target.result;
-        card.appendChild(img);
-
-        // Add loader element
-        const loader=document.createElement('div');
-        loader.className='loader';
-        card.appendChild(loader);
-
-        // Extract the Base64 string (remove header info)
-        const base64String=event.target.result.split(',')[1];
-
-        try {
-          // Send the image to the backend via POST
-          const response=await fetch('http://127.0.0.1:5000/predict',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({image: base64String})
-          });
-
-          // Wait for and process the JSON response
-          const data=await response.json();
-
-          // Remove loader
-          loader.remove();
-
-          // Update styling for the card
-          card.style.borderStyle='solid';
-          card.style.borderColor="#89c2d9";
-          card.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';
-          document.querySelector('.container').style.justifyContent='space-evenly';
-
-          // Show the details card
-          detailsCard.style.display='block';
-
-          // Update the details card with data from the backend
-          // Adjust these lines based on the JSON structure your backend returns
-          document.getElementById('class').textContent=data.road_condition||'N/A';
-          // For example, if your backend returns dimensions, crack type, and number of damages:
-          document.getElementById('dimensions').textContent=data.dimensions||'N/A';
-          document.getElementById('crackType').textContent=data.crack_type||'N/A';
-          document.getElementById('damages').textContent=data.crack_count||'N/A';
-
-        } catch(error) {
-          console.error('Error during prediction:',error);
-          loader.remove();
-          card.innerHTML+='<p style="color:red;">An error occurred. Please try again.</p>';
-        }
-      };
-      reader.readAsDataURL(file);
+    let currentIndex=0;
+    function nextInput() {
+      const inputs=document.querySelectorAll(".input-group");
+      const prevBtn=document.getElementById("prevBtn");
+      const submitBtn=document.querySelector("button[type='submit']");
+      inputs[currentIndex].classList.remove("active");
+      currentIndex++;
+      inputs[currentIndex].classList.add("active");
+      prevBtn.style.display="inline-block";
+      if(currentIndex===inputs.length-1) {
+        document.querySelector("button[type='button']:not(#prevBtn)").style.display="none";
+        submitBtn.style.display="inline-block";
+      }
     }
 
-    function resetCard() {
-      card.innerHTML='';
-      card.innerHTML='<span>Drag & Drop an Image</span>';
-      card.appendChild(browseBtn);
-      card.style.transform='translateX(0)';
-      detailsCard.style.display='none';
+    function prevInput() {
+      const inputs=document.querySelectorAll(".input-group");
+      inputs[currentIndex].classList.remove("active");
+      currentIndex--;
+      inputs[currentIndex].classList.add("active");
+      document.querySelector("button[type='submit']").style.display="none";
+      if(currentIndex===0) document.getElementById("prevBtn").style.display="none";
     }
-
   </script>
 </body>
 

@@ -60,6 +60,31 @@ def serve_index():
 def serve_road():
     return render_template('road.html')
 
+# Serve assets.html
+@app.route('/assets')
+def serve_asset():
+    return render_template('assets.html')
+
+# Serve service.html
+@app.route('/service')
+def serve_service():
+    return render_template('service.html')
+
+# Serve aboutus.html
+@app.route('/about_us')
+def serve_aboutus():
+    return render_template('about_us.html')
+
+# Serve bridge.html
+@app.route('/bridge')
+def serve_bridge():
+    return render_template('bridge.html')
+
+# Serve building.html
+@app.route('/building')
+def serve_building():
+    return render_template('building.html')
+
 # Serve static files (CSS, JS, Images)
 @app.route('/dist/<path:filename>')
 def serve_static(filename):

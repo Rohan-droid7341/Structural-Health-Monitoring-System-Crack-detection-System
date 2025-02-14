@@ -138,7 +138,7 @@
                 <a class="button button-primary infrastructure" href="#" id="openModal">
                   Inspect Infrastructure
                 </a>
-                <a class="button" href="#" id="openModal2">
+                <a class="button" href="/assets" >
                   Explore Assets
                 </a>
               </div>
@@ -177,8 +177,8 @@
       <h2>Select an Option</h2>
       <div class="modal-buttons">
         <button class="modal-button primary" id="modalOptionRoad" onclick="window.location.href='/road'">Inspect Road</button>
-        <button class="modal-button secondary" id="modalOptionBuilding">Inspect Building</button>
-        <button class="modal-button tertiary" id="modalOptionBridge">Inspect Bridge</button>
+        <button class="modal-button secondary" id="modalOptionBuilding" onclick="window.location.href='/building'">Inspect Building</button>
+        <button class="modal-button tertiary" id="modalOptionBridge" onclick="window.location.href='/bridge'">Inspect Bridge</button>
         <button class="modal-button cancel" id="modalCancel">Cancel</button>
       </div>
     </div>
@@ -202,7 +202,7 @@
 
       // Attach the openModal function to all links within your .hero-cta container.
       // (This assumes that these are the buttons you want to trigger the modal.)
-      const ctaLinks=document.querySelectorAll(".hero-cta a");
+      const ctaLinks=document.querySelectorAll(".infrastructure");
       ctaLinks.forEach(link => {
         link.addEventListener("click",openModal);
       });
@@ -215,21 +215,6 @@
 
       // Attach events to the modal option buttons.
       btnCancel.addEventListener("click",closeModal);
-
-      // btnRoad.addEventListener("click", function () {
-      //   // Redirect to the Inspect Road site.
-      //   window.location.href = '/road; // Replace with your URL
-      // });
-
-      btnBuilding.addEventListener("click",function() {
-        // Redirect to the Inspect Building site.
-        window.location.href="https://example.com/inspect-building"; // Replace with your URL
-      });
-
-      btnBridge.addEventListener("click",function() {
-        // Redirect to the Inspect Bridge site.
-        window.location.href="https://example.com/inspect-bridge"; // Replace with your URL
-      });
 
       // Optional: Close the modal when clicking outside the modal content.
       modalOverlay.addEventListener("click",function(e) {
