@@ -85,6 +85,11 @@ def serve_bridge():
 def serve_building():
     return render_template('building.html')
 
+# Serve building.html
+@app.route('/functionality')
+def serve_functionality():
+    return render_template('functionality.html')
+
 # Serve static files (CSS, JS, Images)
 @app.route('/dist/<path:filename>')
 def serve_static(filename):

@@ -233,37 +233,21 @@
               Classifies roads as Good, Moderate, or Poor based on condition.
             </li>
           </ul>
-          <h3>5. Predicting Road Lifespan</h3>
-          <ul>
-            <li>Estimates remaining lifespan and deterioration risks.</li>
-          </ul>
-          <h3>6. Maintenance Suggestions</h3>
-          <ul>
-            <li>Recommends patching, resurfacing, or reconstruction.</li>
-          </ul>
+          
         </div>
       </div>
     </div>
     <div id="bridges" class="tabcontent">
       <h2>Bridge Assessment</h2>
       <div class="road-card">
-        <h3>1. Data Collection (Image & Sensor Inputs)</h3>
+        <h3>1.Input Collection:</h3>
         <ul>
           <li>
-            Drones & Satellite Images: Detects cracks,
-            misalignment, and corrosion.
+            The model takes textual or structured input about the bridge's condition.
           </li>
           <li>
-            LiDAR & Photogrammetry: Measures deformations and
-            displacements.
-          </li>
-          <li>
-            Vibration Sensors (Accelerometers): Analyzes
-            oscillations and structural weaknesses.
-          </li>
-          <li>
-            Strain Gauges & Load Sensors: Detect stress under
-            vehicle loads.
+            Parameters may include visible cracks, year constructed, if flared, and previous maintenance records.
+
           </li>
           <li>
             Weather & Traffic Data: Considers impact of climate
@@ -284,64 +268,28 @@
             Segmentation: Differentiates bridge components
             (deck, cables, piers, etc.).
           </li>
-          <li>
-            Frequency Analysis: Detects unusual vibrations
-            indicating structural defects.
-          </li>
         </ul>
-        <h3>3. Defect Identification</h3>
+        <h3>3. Condition Classification:</h3>
         <ul>
           <li>
-            Cracks & Corrosion: Determines crack length, width,
-            and corrosion levels.
+            The model processes the input and assigns a rating:
+
           </li>
           <li>
-            Load-bearing Issues: Identifies stress points where
-            failure may occur.
+            Safe – No major issues detected.
           </li>
           <li>
-            Vibration Anomalies: Compares normal vs. excessive
-            oscillations.
+            Moderate Risk – Some signs of wear and minor issues.
+          </li>
+          <li>
+            High Risk – Critical structural concerns requiring immediate attention.
           </li>
         </ul>
-        <h3>4. Condition Classification</h3>
-        <ul>
-          <li>Safe: No significant damage, normal wear.</li>
-          <li>
-            Moderate Risk: Visible cracks, mild deformation.
-          </li>
-          <li>
-            High Risk: Severe structural damage, urgent
-            intervention needed.
-          </li>
-        </ul>
-        <h3>5. Predicting Structural Lifespan</h3>
-        <ul>
-          <li>Estimates remaining lifespan in years.</li>
-          <li>
-            Calculates failure probability under various
-            conditions (load, weather, seismic activity).
-          </li>
-        </ul>
-        <h3>6. Maintenance & Repair Recommendations</h3>
+        <h3>4. Output</h3>
         <ul>
           <li>
-            Routine Maintenance: Cleaning, minor crack sealing.
+            Displays the bridge's condition rating.
           </li>
-          <li>
-            Structural Reinforcement: Adding extra supports to
-            prevent collapse.
-          </li>
-          <li>Replacement: If the bridge is beyond repair.</li>
-        </ul>
-        <h3>7. Real-Time Monitoring & Alerts</h3>
-        <ul>
-          <li>Continuous monitoring with IoT sensors.</li>
-          <li>
-            Sends alerts if vibration levels exceed safe
-            limits.
-          </li>
-          <li>Predicts failure risks to prevent accidents.</li>
         </ul>
       </div>
     </div>
@@ -382,18 +330,6 @@
             <li>Uses machine learning regression models to estimate the remaining lifespan of the building.</li>
             <li>Predicts failure risks under different conditions (e.g., earthquakes, heavy loads, weathering).</li>
             <li>Provides risk heatmaps highlighting the most vulnerable areas.</li>
-          </ul>
-          <h3>6. Maintenance & Repair Suggestions</h3>
-          <ul>
-            <li>Routine Maintenance: Minor crack filling, repainting, insulation fixes.</li>
-            <li>Structural Reinforcement: Strengthening weak beams, adding support structures.</li>
-            <li>Full Reconstruction: If the building is unsafe and beyond repair.</li>
-          </ul>
-          <h3>7. Real-Time Monitoring & Alerts</h3>
-          <ul>
-            <li>If IoT sensors are integrated, the system provides real-time updates.</li>
-            <li>Sends alerts for rapid changes in vibration, stress, or environmental conditions.</li>
-            <li>Helps in disaster prevention by warning about potential collapses.</li>
           </ul>
         </div>
       </div>

@@ -534,6 +534,20 @@
             visibility: visible;
             transform: translateX(0);
         }
+
+        #loading {
+            display: none;
+            font-size: 18px;
+            color: blue;
+        }
+        #result {
+            display: none;
+            font-size: 22px;
+            font-weight: bold;
+            color: green;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
   </style>
 </head>
 
@@ -677,6 +691,11 @@
       <button class="btn" type="submit" style="display:none;">Submit</button>
     </form>
   </div>
+  <div class="container" style="display: none;">
+    <button class="btn" onclick="showResult()">Submit</button>
+    <p id="loading">Loading...</p>
+    <p id="result">Condition: Good</p>
+</div>
 
   <div class="steps-section">
     <h2>How It Works</h2>
@@ -781,6 +800,25 @@
       document.querySelector("button[type='submit']").style.display="none";
       if(currentIndex===0) document.getElementById("prevBtn").style.display="none";
     }
+
+    function showResult() {
+        var element = document.getElementById("targetDiv");
+        element.style.display = "none";
+        var element2 = document.getElementById("container");
+        element2.style.display = "block";
+
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("result").style.display = "none";
+            
+            setTimeout(() => {
+                document.getElementById("loading").style.display = "none";
+                let result = document.getElementById("result");
+                result.style.display = "block";
+                setTimeout(() => {
+                    result.style.opacity = 1;
+                }, 100);
+            }, 2000); // 2 seconds delay for loading effect
+        }
   </script>
 </body>
 
