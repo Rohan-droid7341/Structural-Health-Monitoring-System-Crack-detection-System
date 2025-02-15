@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Infrastructure Monitoring</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+      body {
+        font-family: Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fb;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .header {
+        background: #04395b;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header img {
+        height: 50px;
+      }
+      .header h1 {
+        font-size: 1.8rem;
+        margin: 0;
+      }
+      .nav {
+        display: flex;
+        gap: 20px;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .nav a:hover {
+        color: #ff6b6b;
+      }
+      .main-heading {
+        color: #04395b;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-top: 40px;
+      }
+      .sub-heading {
+        color: #333;
+        font-size: 1.5rem;
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+      .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .tablinks {
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+        border: none;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        position: relative;
+        overflow: hidden;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      
+      
+      .tablinks::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .tablinks:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      .tablinks:hover::before {
+        left: 100%;
+      }
+      .tabcontent {
+        display: none;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        max-width:750px;
+        width:auto;
+        margin:0 auto;
+        text-align:left;
+      }
+      /* .road-card {
+        text-align: left;
+        background: #f8f9fb;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        line-height: 1.6;
+      } */
+      .road-card {
+        max-width: 700px; /* Set a nice width */
+         /* Responsive */
+         width:100%;
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin:auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        word-wrap: break-word; /* Ensures long words break */
+        overflow-wrap: break-word; /* Alternative for better support */
+        line-height: 1.6; /* Better readability */
+      }
+
+      .road-card h3 {
+        color: #04395b;
+        font-size: 1.4rem;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+      }
+      .road-card ul {
+        padding-left: 20px;
+      }
+      .road-card ul li {
+        margin-bottom: 8px;
+      }
+      a{
+        text-decoration: none;
+      }
+      .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #ff6b6b;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .tabcontent h2
+    {
+        text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="display: flex; align-items: center">
+        <img src="./images_videos/logo.png" alt="Construct Logo" />
+        <h1>Construct( )</h1>
+      </div>
+      <div class="nav">
+        <a href="/">Home</a>
+        <a href="/about_us">About Us</a>
+        <a href="/assets">Assets</a>
+        <a href="/service">Services</a>
+        <a href="#">Functionality</a>
+      </div>
+    </div>
+    <h1 class="main-heading">Inside the AI</h1>
+    <h2 class="sub-heading">
+      How Our Models Assess Roads, Bridges, and Buildings
+    </h2>
+    <div class="container">
+      <div class="tabs">
+        <button class="tablinks" onclick="openTab(event, 'roads')">
+          Roads
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'bridges')">
+          Bridges
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'buildings')">
+          Buildings
+        </button>
+      </div>
+      <div id="roads" class="tabcontent">
+        <h2>Road Assessment</h2>
+        <div class="road-card">
+          <h3>1. Image Acquisition</h3>
+          <ul>
+            <li>
+              Captures images using drones, satellite imagery, or mobile
+              cameras.
+            </li>
+          </ul>
+          <h3>2. Preprocessing</h3>
+          <ul>
+            <li>Noise Reduction: Enhances clarity.</li>
+            <li>Edge Detection: Identifies cracks and potholes.</li>
+            <li>Segmentation: Separates road surfaces from other elements.</li>
+          </ul>
+          <h3>3. Feature Extraction</h3>
+          <ul>
+            <li>Detects cracks, potholes, surface wear, and lane markings.</li>
+            <li>Uses CNNs for automated feature detection.</li>
+          </ul>
+          <h3>4. Condition Classification</h3>
+          <ul>
+            <li>
+              Classifies roads as Good, Moderate, or Poor based on condition.
+            </li>
+          </ul>
+          <h3>5. Predicting Road Lifespan</h3>
+          <ul>
+            <li>Estimates remaining lifespan and deterioration risks.</li>
+          </ul>
+          <h3>6. Maintenance Suggestions</h3>
+          <ul>
+            <li>Recommends patching, resurfacing, or reconstruction.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="bridges" class="tabcontent">
+      <h2>Bridge Assessment</h2>
+      <div class="road-card">
+        <h3>1. Data Collection (Image & Sensor Inputs)</h3>
+        <ul>
+          <li>
+            Drones & Satellite Images: Detects cracks,
+            misalignment, and corrosion.
+          </li>
+          <li>
+            LiDAR & Photogrammetry: Measures deformations and
+            displacements.
+          </li>
+          <li>
+            Vibration Sensors (Accelerometers): Analyzes
+            oscillations and structural weaknesses.
+          </li>
+          <li>
+            Strain Gauges & Load Sensors: Detect stress under
+            vehicle loads.
+          </li>
+          <li>
+            Weather & Traffic Data: Considers impact of climate
+            and load on wear.
+          </li>
+        </ul>
+        <h3>2. Preprocessing & Feature Extraction</h3>
+        <ul>
+          <li>
+            Noise Reduction: Removes irrelevant data from
+            images & sensor readings.
+          </li>
+          <li>
+            Edge Detection: Identifies cracks and material
+            degradation.
+          </li>
+          <li>
+            Segmentation: Differentiates bridge components
+            (deck, cables, piers, etc.).
+          </li>
+          <li>
+            Frequency Analysis: Detects unusual vibrations
+            indicating structural defects.
+          </li>
+        </ul>
+        <h3>3. Defect Identification</h3>
+        <ul>
+          <li>
+            Cracks & Corrosion: Determines crack length, width,
+            and corrosion levels.
+          </li>
+          <li>
+            Load-bearing Issues: Identifies stress points where
+            failure may occur.
+          </li>
+          <li>
+            Vibration Anomalies: Compares normal vs. excessive
+            oscillations.
+          </li>
+        </ul>
+        <h3>4. Condition Classification</h3>
+        <ul>
+          <li>Safe: No significant damage, normal wear.</li>
+          <li>
+            Moderate Risk: Visible cracks, mild deformation.
+          </li>
+          <li>
+            High Risk: Severe structural damage, urgent
+            intervention needed.
+          </li>
+        </ul>
+        <h3>5. Predicting Structural Lifespan</h3>
+        <ul>
+          <li>Estimates remaining lifespan in years.</li>
+          <li>
+            Calculates failure probability under various
+            conditions (load, weather, seismic activity).
+          </li>
+        </ul>
+        <h3>6. Maintenance & Repair Recommendations</h3>
+        <ul>
+          <li>
+            Routine Maintenance: Cleaning, minor crack sealing.
+          </li>
+          <li>
+            Structural Reinforcement: Adding extra supports to
+            prevent collapse.
+          </li>
+          <li>Replacement: If the bridge is beyond repair.</li>
+        </ul>
+        <h3>7. Real-Time Monitoring & Alerts</h3>
+        <ul>
+          <li>Continuous monitoring with IoT sensors.</li>
+          <li>
+            Sends alerts if vibration levels exceed safe
+            limits.
+          </li>
+          <li>Predicts failure risks to prevent accidents.</li>
+        </ul>
+      </div>
+    </div>
+    <div id="buildings" class="tabcontent">
+        <h2>Building Assessment</h2>
+        <div class="road-card">
+          <h3>1. Data Collection</h3>
+          <ul>
+            <li>Images & Videos: Captured from drones, CCTV, or handheld cameras.</li>
+            <li>Thermal Imaging: Detects heat leaks, insulation problems, and internal structural weaknesses.</li>
+            <li>LiDAR & 3D Scanning: Creates 3D models to check for deformations.</li>
+            <li>Vibration & Seismic Sensors: Detect unusual movements or stress points.</li>
+            <li>Sound & Ultrasonic Sensors: Identify hidden cracks or voids inside walls.</li>
+          </ul>
+          <h3>2. Preprocessing</h3>
+          <ul>
+            <li>Noise Reduction: Removes irrelevant details from images and sensor data.</li>
+            <li>Segmentation: Separates walls, pillars, beams, and floors for targeted analysis.</li>
+            <li>Edge Detection: Highlights cracks, misalignments, and material fatigue.</li>
+            <li>Anomaly Detection: Compares current structure to ideal or past states.</li>
+          </ul>
+          <h3>3. Feature Extraction</h3>
+          <ul>
+            <li>Cracks & Surface Damage: Measures depth, width, and spread of cracks.</li>
+            <li>Material Degradation: Detects corrosion, rust, or weakened concrete.</li>
+            <li>Structural Shifts: Identifies tilting, bending, or sinking foundations.</li>
+            <li>Load-Bearing Analysis: Checks stress distribution on beams and columns.</li>
+            <li>Thermal & Moisture Leaks: Identifies heat escape zones or water seepage.</li>
+          </ul>
+          <h3>4. Condition Classification</h3>
+          <ul>
+            <li>Safe: No major issues, normal wear and tear.</li>
+            <li>Moderate Risk: Some cracks or minor damage, requiring maintenance.</li>
+            <li>High Risk: Severe structural issues, requiring urgent repair or evacuation.</li>
+          </ul>
+          <h3>5. Predicting Lifespan & Risk Assessment</h3>
+          <ul>
+            <li>Uses machine learning regression models to estimate the remaining lifespan of the building.</li>
+            <li>Predicts failure risks under different conditions (e.g., earthquakes, heavy loads, weathering).</li>
+            <li>Provides risk heatmaps highlighting the most vulnerable areas.</li>
+          </ul>
+          <h3>6. Maintenance & Repair Suggestions</h3>
+          <ul>
+            <li>Routine Maintenance: Minor crack filling, repainting, insulation fixes.</li>
+            <li>Structural Reinforcement: Strengthening weak beams, adding support structures.</li>
+            <li>Full Reconstruction: If the building is unsafe and beyond repair.</li>
+          </ul>
+          <h3>7. Real-Time Monitoring & Alerts</h3>
+          <ul>
+            <li>If IoT sensors are integrated, the system provides real-time updates.</li>
+            <li>Sends alerts for rapid changes in vibration, stress, or environmental conditions.</li>
+            <li>Helps in disaster prevention by warning about potential collapses.</li>
+          </ul>
+        </div>
+      </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Construct. All rights reserved.</p>
+        <p>
+          <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
+          <a href="#">Contact Us</a>
+        </p>
+        <p>
+          Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> |
+          <a href="#">Instagram</a>
+        </p>
+      </div>
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".tablinks").click();
+      });
+    </script>
+  </body>
+</html>
