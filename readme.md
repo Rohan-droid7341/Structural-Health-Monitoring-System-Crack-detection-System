@@ -30,8 +30,8 @@ This project, developed by **Team PrimAI**, implements an AI-based system to mon
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-repo/infrastructure-ai.git
-   cd infrastructure-ai
+   git clone https://github.com/Rohan-droid7341/Structural-Health-Monitoring-System-Crack-detection-System
+   cd ./Structural-Health-Monitoring-System-Crack-detection-System
    ```
 2. **Install dependencies:**
    ```bash
