@@ -1,6 +1,6 @@
 # Construct() - AI-Powered Infrastructure Health Monitoring
 
-![Construct () icon](./frontend/images_videos/logo.png)
+![Construct () icon](./frontend/images_videos/logo_readme.png)
 
 
 ## Overview
