@@ -31,64 +31,19 @@ Construct is an AI-powered platform designed to assess the condition of infrastr
 ## Tech Stack
 
 ### Frontend
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://sass-lang.com/" target="_blank">
-    <img src="https://i0.wp.com/techprimelab.com/wp-content/uploads/2020/06/SCSS-or-CSS.jpg?fit=1024%2C576&ssl=1"
-         alt="SCSS" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>SCSS</p>
-</div>
-
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://dummyurl.com/javascript" target="_blank">
-    <img src="https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Symbol.png"
-         alt="JavaScript" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>JavaScript</p>
-</div>
+- [SCSS](https://sass-lang.com/)
+- [JavaScript](https://www.javascript.com/)
 
 ### Backend
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://flask.palletsprojects.com/en/stable/" target="_blank">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmD38KsMgEwahtWc_Nfs5ZVktP9dBc36MUZA&s"
-         alt="Python Flask" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>Python Flask</p>
-</div>
+- [Python Flask](https://flask.palletsprojects.com/en/stable/)
 
 ### AI/ML Model
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://www.tensorflow.org/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/2560px-TensorFlow_logo.svg.png"
-         alt="TensorFlow" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>TensorFlow</p>
-</div>
-
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://pytorch.org/" target="_blank">
-    <img src="https://cdn.worldvectorlogo.com/logos/pytorch-2.svg"
-         alt="PyTorch" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>PyTorch</p>
-</div>
-
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://roboflow.com/" target="_blank">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC9pl1f0FUgfttU7hr0ZZcxaGCTMTGO1ZNrA&s"
-         alt="Roboflow" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>Roboflow</p>
-</div>
+- [TensorFlow](https://www.tensorflow.org/)
+- [PyTorch](https://pytorch.org/)
+- [Roboflow](https://roboflow.com/)
 
 ### Database
-<div style="display:inline-block; margin: 0 30px;">
-  <a href="https://www.mongodb.com/" target="_blank">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTglV8OKEUEbqJYaxunvJQJdhYKZHJ50X_67A&s"
-         alt="MongoDB" width="60" height="60" style="border-radius:20%;" />
-  </a>
-  <p>MongoDB</p>
-</div>
+- [MongoDB](https://www.mongodb.com/)
 
 ## Installation & Setup
 ### 1️⃣ Clone the Repository
